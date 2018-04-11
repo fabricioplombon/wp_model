@@ -1,0 +1,395 @@
+@import "../../bower_components/sass-mq/mq";
+@import "../../bower_components/normalize-scss/normalize.scss";
+
+@import "fontface";
+@import "slick-theme";
+@import 'settings';
+
+
+body {
+	-webkit-backface-visibility: hidden; // Addresses a small issue in webkit: http://bit.ly/NEdoDq
+}
+
+
+/* #Default
+================================================== */
+
+html {
+  	position: relative;
+  	min-height: 100%;  	
+  	/* killing 300ms touch delay in IE */
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+
+html, body { 
+	margin:0;
+	height: 100%;
+}
+
+body {
+	background: $body-bg;	  	
+  	font-family: $font-st;  	
+  	color: $color-dark;  	
+	letter-spacing: .1em;
+	font-size: $font-size-base;	
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
+}
+
+a, a:hover, a:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+strong {
+	font-weight: 700;
+}
+
+i {
+	font-style: italic;
+}
+
+img {
+	width: 100%; 
+	max-width: 100%;
+	height: auto;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline-block;
+}
+
+section {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: relative;
+	z-index: 50;
+}
+
+
+/* #Grid 
+====================================================*/
+
+.Container {
+	position: relative;
+	width: 1280px;
+	margin: auto;
+}
+
+.Row {
+	display: block;
+	position: relative;
+	clear: both;
+	overflow: hidden;
+
+	&--space {
+		padding-bottom: 100px;
+	}
+}
+
+.Col-8 {
+	display: inline-block;
+	width: 66%;
+}
+
+.Col-6 {
+	width: 49%;
+	display: inline-block;
+
+	&--center {
+		@extend .Col-6;
+		margin-left: 25%;
+	}
+}
+
+.Col-4 {
+	width: 32%;
+	display: inline-block;		
+}
+
+.Col-3 {
+	width: 25%;
+	display: inline-block;
+}
+
+/* #Utilies 
+====================================================*/
+
+.u-Right {
+	float: right;
+}
+
+.u-Left {
+	float: left;
+}
+
+.is-Hidden {
+	display: none;
+}
+
+.is-View {
+	display: block;
+}
+
+.Text-left {
+	text-align: left;
+}
+
+.Text-right {
+	text-align: right;
+}
+
+.Text-center {
+	text-align: center;
+}
+
+
+/* #Headings 
+====================================================*/
+
+
+h1, h2, h3, h4, h5 {
+	@extend %Title;
+	color: inherit;
+}
+
+
+/* #Icons
+====================================================*/
+
+[class^="i-"] {
+	position: relative;
+	display: inline-block;
+}
+
+[class^="i-"]:before {
+	content: " ";
+	width: 25px; 
+	height: 25px;
+	display: inline-block;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-right: 10px;
+}
+
+
+.i-facebook:before {
+	background-image: url('../img/icon-facebook.svg');	
+}
+
+
+
+/* #Links
+====================================================*/
+
+.Btn {
+	@extend .Transition;	
+	color: $color-light;
+	background: $color-st;
+	position: relative;
+	padding: 10px 15px;
+	text-transform: uppercase;	
+	display: inline-block;
+	border: none;
+	font-family: $font-nd;
+	font-weight: 300;
+	
+
+	&:hover {
+		color: $color-rd;
+		background: $color-nd;
+	}
+
+	&--open {
+		width: 25px;
+		height: 25px;		
+		display: block;
+		position: absolute;
+		right: 3px;
+		top: 0px;
+		padding: 0;
+		z-index: 100;
+		overflow: hidden;	
+		display: none;	
+
+		span {
+			@extend .Transition;
+			width: 25px;
+			height: 8px;
+			border-bottom: 2px solid $color-st;
+			display: block;
+			position: relative;
+			margin: 0;
+		}
+
+		&.is-open {
+
+			span:nth-child(1){
+				transform: rotate(45deg);
+				bottom: -8px;
+    			right: -2px;
+			}
+
+			span:nth-child(2){
+				//opacity: 0;
+				right: -25px;
+			}
+
+			span:nth-child(3){
+				transform: rotate(-45deg);
+				right: 1px;
+    			top: -8px;
+			}
+		}
+	}
+}
+
+
+/* #Form
+====================================================*/
+
+input, textarea {
+	padding: 10px;
+	width: 100%;
+	border: none;
+	background: $color-light;
+	margin: 10px 0;
+}
+
+
+label {
+	span {
+		font-style: normal;
+	}
+}
+
+select {
+	width: 200px;
+	padding: 10px;
+}
+
+
+/* #PIE
+================================================== */
+
+$pie-path: "PIE.htc";
+
+%pie {
+    behavior: url($pie-path);
+}
+
+/* #Border-box
+====================================================*/
+
+// We switch our box model to Border Box.
+// From Paul Irish
+*, *:before, *:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+/* #Placeholder Color
+====================================================*/
+
+::-webkit-input-placeholder {
+   color: inherit;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: inherit;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: inherit;  
+}
+
+:-ms-input-placeholder {  
+   color: inherit;  
+}
+
+
+/* #Placeholder & Mixins
+================================================== */
+
+%Transition {	
+	transition: $transition;
+}
+
+.Transition,
+.Transition:hover,
+.Transition a,
+.Transition a:hover,
+.Transition img,
+.Transition img:hover,
+.Transition div,
+.Transition div:hover
+.Transition li,
+.Transition li:hover
+.Transition li a,
+.Transition li a:hover,
+.Transition a:after,
+.Transition a:hover:after,
+.Transition:before,
+.Transition:hover:before
+{
+	@extend %Transition;
+}
+
+%Title {
+	font-family: $font-st;
+	text-transform: uppercase;
+	font-weight: 300;
+	color: inherit;    
+}
+
+
+/* #Mixin
+================================================== */
+
+
+@mixin center($xy:xy) {
+   @if $xy == xy {
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      right: auto;
+      @include transform(translateX(-50%) translateY(-50%));
+   }
+   @else if $xy == x {
+      left: 50%;
+      right: auto;
+      @include transform(translateX(-50%));
+   }
+   @else if $xy == y {
+      top: 50%;
+      bottom: auto;
+      @include transform(translateY(-50%));
+   }
+}
+
+@mixin transform($val...){
+  -webkit-transform: $val;
+     -moz-transform: $val;
+      -ms-transform: $val;
+          transform: $val;
+}
+
+@mixin transition($val...){
+  -webkit-transition: $val;
+     -moz-transition: $val;
+      -ms-transition: $val;
+          transition: $val;
+}

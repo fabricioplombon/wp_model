@@ -1,0 +1,44 @@
+
+/* #Global
+================================================== */
+
+/* 
+$mobile:  						320px;
+$tablet:  						740px;
+$desktop: 						980px;
+$wide:    						1300px;
+*/
+
+@include mq($until: wide) {
+
+	.Container {
+		width: 960px;
+	}
+
+}
+
+@include mq($until: desktop) {
+
+	.Container {
+		width: 720px;
+	}
+
+}
+
+@include mq($until: tablet) {
+
+	
+	.Container {
+		width: 100%;
+	}
+
+	.Col-8, .Col-6, .Col-4, .Col-3 {
+		width: 100%;
+	}
+	
+	
+}
+
+@include mq($until: mobile) {
+
+}

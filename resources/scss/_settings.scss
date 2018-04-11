@@ -1,0 +1,42 @@
+// custom variables and override bootstrap variables
+
+/* #Global
+================================================== */
+
+$body-bg: 						#F1F9FE;
+
+/* #Font
+================================================== */
+
+$font-st: 						'Lucida_Bright';
+$font-nd: 						'Helvetica Neue LT Std';
+
+$font-size-base:          		16px !default;
+$line-height-base:        		1.5 !default; // 24/16
+
+
+/* #Colors
+================================================== */
+
+$color-st:						#458AB9; // Azul
+$color-nd:						#98C3E8; // Azul Claro
+$color-rd:						#006497; // Azul Escuro
+
+
+$color-dark:					#000000;
+$color-light:					#ffffff;
+$color-middle:					#f3f3f3; 
+
+/* #Transition
+================================================== */
+
+$time:							500ms;
+$transition:					all ease-in-out $time;
+
+/* #Sizes
+================================================== */
+
+$mobile:  						320px;
+$tablet:  						740px;
+$desktop: 						980px;
+$wide:    						1300px;
